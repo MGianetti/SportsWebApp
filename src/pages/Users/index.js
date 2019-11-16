@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
-import Fetch from '../../../api/index'
-import DataTable from '../../common/table';
-import { Grid, Typography, TextField } from '@material-ui/core';
+import React, { Component } from 'react'
+import Fetch from '../../api/index'
+import DataTable from '../../components/common/Table'
+import { Grid, Typography} from '@material-ui/core'
 import {withStyles} from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
-import Divider from '@material-ui/core/Divider';
-import SearchInputField from './searchInputField.jsx';
+import Divider from '@material-ui/core/Divider'
+import SearchInputField from '../Users/components/SearchInputField'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import ModalElement from '../Users/components/Modal'
+import IconButton from '@material-ui/core/IconButton'
+
 
 const styles = theme => ({
     externalContainer: {
@@ -29,8 +34,12 @@ class UserSearch extends Component {
         super(props)
         this.state = {
             users: [],
-            columns: ['Username', 'Name', 'E-mail', 'City', 'Ride in Group', 'Day of the week', 'Posts', 'Albuns', 'Photos'],
-            searchField: ''
+            columns: ['Username', 'Name', 'E-mail', 'City', 'Ride in Group', 'Day of the week', 'Posts', 'Albuns', 'Photos', ''],
+            searchField: '',
+            modal:{
+                open: false,
+                userId: ''
+            }
         }
     }
 
@@ -65,37 +74,37 @@ class UserSearch extends Component {
         let postsCounter = {};
         posts.map( post => {
             if(!( post.userId in postsCounter)){
-                postsCounter[post.userId] = 1;
+                return postsCounter[post.userId] = 1;
             }else{
-                postsCounter[post.userId] += 1;
+                return postsCounter[post.userId] += 1;
             }
         })
        
         let usersRideOption = {};
         rideInGroup.map( rideOption => {
-            usersRideOption[rideOption.userId] = rideOption.rideInGroup
+            return usersRideOption[rideOption.userId] = rideOption.rideInGroup
         })
 
         let usersDaysOfTheWeek = {};
         daysOfTheWeek.map( daysOption => {
-            usersDaysOfTheWeek[daysOption.userId] = daysOption.daysOfTheWeek
+            return usersDaysOfTheWeek[daysOption.userId] = daysOption.daysOfTheWeek
         })
 
         let usersAlbuns = {};
         albuns.map( album => {
             if(!( album.userId in usersAlbuns)){
-                usersAlbuns[album.userId] = 1;
+                return usersAlbuns[album.userId] = 1;
             }else{
-                usersAlbuns[album.userId] += 1;
+                return usersAlbuns[album.userId] += 1;
             }
         })
 
         let usersPhotos = {}
         albuns.map( album => {
             if(!( album.userId in usersPhotos)){
-                usersPhotos[album.userId] = album.photos.length;
+                return usersPhotos[album.userId] = album.photos.length;
             }else{
-                usersPhotos[album.userId] += album.photos.length;
+                return usersPhotos[album.userId] += album.photos.length;
             }
         })
         
@@ -110,10 +119,38 @@ class UserSearch extends Component {
                 usersDaysOfTheWeek[user.id],
                 postsCounter[user.id],
                 usersAlbuns[user.id],
-                usersPhotos[user.id]
+                usersPhotos[user.id],
+                <IconButton onClick={() => this.handleTrashClick(user.name)}>
+                    <FontAwesomeIcon icon={faTrash} key={`${user.id}-trash`} color='white'/>
+                </IconButton>
             ])            
         })
         this.setState({users: formatedUsers})
+    }
+
+    handleTrashClick = (userName) => {
+        this.setState({modal: {open: true, userId: userName}})              
+    }
+
+    handleModalConfirmClick = () => {
+        let { users, modal } = this.state;
+        const newUsers = users.filter(user => {
+                            if(user[1] !== modal.userId) return user
+                        })
+        modal = {
+            open: false,
+            userId: ''
+        }
+        this.setState({users: newUsers, modal})
+    }
+    
+    handleModalCancelClick = () => {
+        const modal = {
+            open: false,
+            userId: ''
+        }
+        this.setState({ modal })
+
     }
 
     render() { 
@@ -135,6 +172,7 @@ class UserSearch extends Component {
                     </Grid>
                 </Grid>
                 <Grid item>
+                    <ModalElement openState={this.state.modal.open} onConfirm={this.handleModalConfirmClick} onCancel={this.handleModalCancelClick}/>
                     <DataTable tableData={users} tableHeader={columns}/>
                 </Grid>
             </Grid>

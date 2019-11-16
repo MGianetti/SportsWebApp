@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
-import NotFound from './components/common/notFound';
-import UserSearch from './components/users/search';
-import UserRegistration from './components/users/registration';
+import NotFound from './components/common/NotFound'
+import UserSearch from './pages/Users/index';
+import UserRegistration from './pages/Users/New/index';
 import { Grid } from '@material-ui/core';
-import TopBar from './components/appBar/topBar';
-import MiddleBar from './components/appBar/middleBar';
-import BottomBar from './components/appBar/bottomBar';
+import TopBar from './components/appBar/TopBar';
+import MiddleBar from './components/appBar/MiddleBar';
+import BottomBar from './components/appBar/BottomBar';
 import {makeStyles} from '@material-ui/core/styles'
 
 const styles = makeStyles(theme => ({

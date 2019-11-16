@@ -13,7 +13,7 @@ export default class Fetch{
             const mockAlbuns = [
                 {
                   "id": "1",
-                  "userId": "2",
+                  "userId": "6",
                   "photos": [
                     1,
                     2,
@@ -125,7 +125,7 @@ export default class Fetch{
                 },
                 {
                   "id": "3",
-                  "userId": "4",
+                  "userId": "5",
                   "photos": [
                     101,
                     102,
@@ -237,7 +237,7 @@ export default class Fetch{
                 },
                 {
                   "id": "5",
-                  "userId": "6",
+                  "userId": "9",
                   "photos": [
                     201,
                     202,
@@ -405,7 +405,7 @@ export default class Fetch{
                 },
                 {
                   "id": "8",
-                  "userId": "9",
+                  "userId": "1",
                   "photos": [
                     351,
                     352,
@@ -461,7 +461,7 @@ export default class Fetch{
                 },
                 {
                   "id": "9",
-                  "userId": "10",
+                  "userId": "1",
                   "photos": [
                     401,
                     402,
@@ -741,7 +741,7 @@ export default class Fetch{
                 },
                 {
                   "id": "14",
-                  "userId": "5",
+                  "userId": "4",
                   "photos": [
                     651,
                     652,
@@ -965,7 +965,7 @@ export default class Fetch{
                 },
                 {
                   "id": "18",
-                  "userId": "9",
+                  "userId": "7",
                   "photos": [
                     851,
                     852,
@@ -1133,7 +1133,7 @@ export default class Fetch{
                 },
                 {
                   "id": "21",
-                  "userId": "2",
+                  "userId": "5",
                   "photos": [
                     1001,
                     1002,
@@ -1413,7 +1413,7 @@ export default class Fetch{
                 },
                 {
                   "id": "26",
-                  "userId": "7",
+                  "userId": "1",
                   "photos": [
                     1251,
                     1252,
@@ -1805,7 +1805,7 @@ export default class Fetch{
                 },
                 {
                   "id": "33",
-                  "userId": "4",
+                  "userId": "3",
                   "photos": [
                     1601,
                     1602,

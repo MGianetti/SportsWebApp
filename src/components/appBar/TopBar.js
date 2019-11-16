@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare } from '@fortawesome/free-solid-svg-icons'
-import DropDownMenu from './dropDown';
+import DropDownMenu from './DropDown';
 
 const styles = theme => ({
     externalContainer: {
