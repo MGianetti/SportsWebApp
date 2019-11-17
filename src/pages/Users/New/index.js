@@ -8,9 +8,10 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLifeRing } from "@fortawesome/free-solid-svg-icons";
+import { faHeartbeat } from "@fortawesome/free-solid-svg-icons";
+import { faSmile } from "@fortawesome/free-solid-svg-icons";
 
 const styles = theme => ({
   externalContainer: {
@@ -83,7 +84,16 @@ const styles = theme => ({
       color: "#1abc9c"
     }
   },
-  checked: {}
+  helpContainer: {
+    width: "20vw"
+  },
+  checked: {},
+  helpText: {
+    color: "#3ac5a9"
+  },
+  logoPadding: {
+    padding: "8px"
+  }
 });
 
 class UserRegistration extends Component {
@@ -168,9 +178,23 @@ class UserRegistration extends Component {
       daysOfTheWeek,
       posts
     } = this.state;
+
     const { always, sometimes, never } = rideInGroup;
     const { mon, tue, wed, thu, fri, sat, sun } = daysOfTheWeek;
 
+    if (
+      !(
+        username &&
+        name &&
+        email &&
+        city &&
+        always | sometimes | never &&
+        mon | tue | wed | thu | fri | sat | sun
+      )
+    ) {
+      alert("Fill all the fields before saving!");
+      return;
+    }
     localStorage.setItem(this.state.username, [
       username,
       name,
@@ -239,11 +263,87 @@ class UserRegistration extends Component {
               <Divider />
             </Grid>
           </Grid>
+          <Grid container direction="row" justify="space-evenly">
+            <Grid item className={classes.helpContainer}>
+              <Grid container spacing={2} direction="column">
+                <Grid item>
+                  <Typography variant="h5" className={classes.helpText}>
+                    Need help?
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Grid container spacing={2} direction="row">
+                    <Grid item xs={2}>
+                      <FontAwesomeIcon
+                        size="4x"
+                        color="#3ac5a9"
+                        icon={faLifeRing}
+                      />
+                    </Grid>
+                    <Grid item xs={10}>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item className={classes.helpContainer}>
+              <Grid container spacing={2} direction="column">
+                <Grid item>
+                  <Typography variant="h5" className={classes.helpText}>
+                    Why register?
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Grid container spacing={2} direction="row">
+                    <Grid item xs={2}>
+                      <FontAwesomeIcon
+                        size="4x"
+                        color="#3ac5a9"
+                        icon={faHeartbeat}
+                      />
+                    </Grid>
+                    <Grid item xs={10}>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item className={classes.helpContainer}>
+              <Grid container spacing={2} direction="column">
+                <Grid item>
+                  <Typography variant="h5" className={classes.helpText}>
+                    What people are saying...
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Grid container spacing={2} direction="row">
+                    <Grid item xs={2}>
+                      <FontAwesomeIcon
+                        size="4x"
+                        color="#3ac5a9"
+                        icon={faSmile}
+                      />
+                    </Grid>
+                    <Grid item xs={10}>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
           <Divider className={classes.divider} />
           <Grid
             container
             direction="row"
-            justify="center"
             alignContent="space-around"
             justify="space-around"
             className={classes.registrationContainer}
