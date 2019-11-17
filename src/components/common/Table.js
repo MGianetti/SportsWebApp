@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
         minHeight: 20,
         height: 60,
     },
+    greenText: {
+        color: '#1abc9c',
+    },
 }))
 
 const DataTable = ({tableData, tableHeader, filterData}) => {
@@ -38,9 +41,22 @@ const DataTable = ({tableData, tableHeader, filterData}) => {
             <TableBody>
                 {tableData.map(row => (
                     <TableRow hover key={`${row[0]}-row`}>
-                        {tableHeader.map(col => (
-                            <TableCell key={`${row[0]}-${col}`}>{row[tableHeader.indexOf(col)]}</TableCell>
-                        ))}
+                        {tableHeader.map(col => {
+                            if (
+                                tableHeader.indexOf(col) === 2 ||
+                                tableHeader.indexOf(col) === 3 ||
+                                tableHeader.indexOf(col) === 6 ||
+                                tableHeader.indexOf(col) === 7
+                            ) {
+                                return (
+                                    <TableCell className={classes.greenText} key={`${row[0]}-${col}`}>
+                                        {row[tableHeader.indexOf(col)]}
+                                    </TableCell>
+                                )
+                            } else {
+                                return <TableCell key={`${row[0]}-${col}`}>{row[tableHeader.indexOf(col)]}</TableCell>
+                            }
+                        })}
                     </TableRow>
                 ))}
             </TableBody>

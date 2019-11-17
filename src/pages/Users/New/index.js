@@ -93,6 +93,9 @@ const styles = theme => ({
   },
   logoPadding: {
     padding: "8px"
+  },
+  registrationHelper:{
+    marginBottom:100
   }
 });
 
@@ -263,7 +266,7 @@ class UserRegistration extends Component {
               <Divider />
             </Grid>
           </Grid>
-          <Grid container direction="row" justify="space-evenly">
+          <Grid container direction="row" justify="space-evenly" className={classes.registrationHelper}>
             <Grid item className={classes.helpContainer}>
               <Grid container spacing={2} direction="column">
                 <Grid item>
