@@ -1,35 +1,32 @@
-import React, { Component } from "react";
-import { Grid } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
+/** @format */
 
-const styles = theme => ({
-  externalContainer: {
-    height: 60,
-    backgroundColor: "#f9f9f9"
-  }
-});
+import React, {Component} from 'react'
+import {withStyles} from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import {Switch, Route} from 'react-router-dom'
+import breadCrumbRegistration from '../appBar/middleBar/BreadCrumbRegistration'
+import breadCrumbUsers from '../appBar/middleBar/BreadCrumbUsers'
+
+const styles = theme => ({})
 
 class MiddleBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    const { classes } = this.props;
-    return (
-      <Grid
-        container
-        direction="row"
-        className={classes.externalContainer}
-      ></Grid>
-    );
-  }
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+    render() {
+        const {classes} = this.props
+        return (
+            <Switch>
+                <Route path="/users/new" component={breadCrumbRegistration} />
+                <Route path="/users" component={breadCrumbUsers} />
+            </Switch>
+        )
+    }
 }
 
 MiddleBar.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+    classes: PropTypes.object.isRequired,
+}
 
-export default withStyles(styles)(MiddleBar);
+export default withStyles(styles)(MiddleBar)

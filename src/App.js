@@ -56,32 +56,3 @@ App.propTypes = {
 }
 
 export default withStyles(styles)(App)
-
-// const App = () => {
-//     return (
-//         <>
-//             <Grid container direction="column" v>
-//                 <Grid item>
-//                     <TopBar />
-//                 </Grid>
-//                 <Grid item>
-//                     <MiddleBar />
-//                 </Grid>
-//                 <Grid item>
-//                     <BottomBar />
-//                 </Grid>
-//             </Grid>
-//             <Grid container justify="center">
-//                 <Switch>
-//                     <Redirect from="/" exact to="/users" />
-//                     <Route path="/users/new" component={UserRegistration} />
-//                     <Route path="/users" component={UserSearch} />
-//                     <Route path="/not-found" component={NotFound} />
-//                     <Redirect to="/not-found" />
-//                 </Switch>
-//             </Grid>
-//         </>
-//     )
-// }
-
-// export default App

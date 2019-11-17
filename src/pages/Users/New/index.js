@@ -246,7 +246,7 @@ class UserRegistration extends Component {
         const {classes} = this.props
         return (
             <Grid container className={classes.externalContainer} direction="column">
-                <Grid item>
+                <Grid item xs={12} xl={12}>
                     <Grid
                         container
                         direction="row"
@@ -275,10 +275,10 @@ class UserRegistration extends Component {
                                 </Grid>
                                 <Grid item>
                                     <Grid container spacing={1} direction="row">
-                                        <Grid item xs={2} className={classes.iconContainer}>
+                                        <Grid item xs={3} xl={3} className={classes.iconContainer}>
                                             <FontAwesomeIcon size="4x" color="#3ac5a9" icon={faLifeRing} />
                                         </Grid>
-                                        <Grid item xs={10}>
+                                        <Grid item xs={9} xl={9}>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                             tempor incididunt ut labore et dolore magna aliqua.
                                         </Grid>
@@ -295,10 +295,10 @@ class UserRegistration extends Component {
                                 </Grid>
                                 <Grid item>
                                     <Grid container spacing={2} direction="row">
-                                        <Grid item xs={2} xl={3} className={classes.iconContainer}>
+                                        <Grid item xs={3} xl={3} className={classes.iconContainer}>
                                             <FontAwesomeIcon size="4x" color="#3ac5a9" icon={faHeartbeat} />
                                         </Grid>
-                                        <Grid item xs={10} xl={9}>
+                                        <Grid item xs={9} xl={9}>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                             tempor incididunt ut labore et dolore magna aliqua.
                                         </Grid>
@@ -315,10 +315,10 @@ class UserRegistration extends Component {
                                 </Grid>
                                 <Grid item>
                                     <Grid container spacing={2} direction="row">
-                                        <Grid item xs={2} className={classes.iconContainer}>
+                                        <Grid item xs={3} xl={3} className={classes.iconContainer}>
                                             <FontAwesomeIcon size="4x" color="#3ac5a9" icon={faSmile} />
                                         </Grid>
-                                        <Grid item xs={10}>
+                                        <Grid item xs={9} xl={9}>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                             tempor incididunt ut labore et dolore magna aliqua.
                                         </Grid>
