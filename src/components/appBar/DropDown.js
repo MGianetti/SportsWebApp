@@ -38,10 +38,17 @@ class DropDownMenu extends Component {
     render() {
         const {classes} = this.props
         const {userName} = this.state
+
+        let initials = userName.name.split(' ')
+        if (initials.length >= 2) {
+            initials = initials[0][0] + initials[1][0]
+        } else {
+            initials = initials[0][0] + initials[0][1]
+        }
         return (
             <Grid container alignItems="center" direction="row">
                 <Grid item className={classes.avatar}>
-                    <Avatar>{userName.initials}</Avatar>
+                    <Avatar>{initials}</Avatar>
                 </Grid>
                 <Grid item>
                     <Grid container alignItems="center" direction="row">

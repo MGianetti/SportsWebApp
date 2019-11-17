@@ -1,5 +1,4 @@
 /** @format */
-
 import React, {Component} from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import NotFound from './components/common/NotFound'
@@ -22,26 +21,6 @@ const styles = theme => ({
 class App extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            users: [],
-            columns: [
-                'Username',
-                'Name',
-                'E-mail',
-                'City',
-                'Ride in Group',
-                'Day of the week',
-                'Posts',
-                'Albuns',
-                'Photos',
-                '',
-            ],
-            searchField: '',
-            modal: {
-                open: false,
-                name: '',
-            },
-        }
     }
     render() {
         const {classes} = this.props
@@ -77,3 +56,32 @@ App.propTypes = {
 }
 
 export default withStyles(styles)(App)
+
+// const App = () => {
+//     return (
+//         <>
+//             <Grid container direction="column" v>
+//                 <Grid item>
+//                     <TopBar />
+//                 </Grid>
+//                 <Grid item>
+//                     <MiddleBar />
+//                 </Grid>
+//                 <Grid item>
+//                     <BottomBar />
+//                 </Grid>
+//             </Grid>
+//             <Grid container justify="center">
+//                 <Switch>
+//                     <Redirect from="/" exact to="/users" />
+//                     <Route path="/users/new" component={UserRegistration} />
+//                     <Route path="/users" component={UserSearch} />
+//                     <Route path="/not-found" component={NotFound} />
+//                     <Redirect to="/not-found" />
+//                 </Switch>
+//             </Grid>
+//         </>
+//     )
+// }
+
+// export default App

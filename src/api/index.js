@@ -8,27 +8,21 @@ export default class Fetch {
             const userName = [
                 {
                     name: 'Mateus Gianetti de Jesus',
-                    initials: 'MG',
                 },
                 {
                     name: 'Jason Bourne',
-                    initials: 'JB',
                 },
                 {
                     name: 'Lucas Alves de Oliveira',
-                    initials: 'LA',
                 },
                 {
                     name: 'Gabriela Ribas',
-                    initials: 'GR',
                 },
                 {
                     name: 'Mariane Daiane Fernandes',
-                    initials: 'MD',
                 },
                 {
                     name: 'Marcos Vinicius Gael Rocha',
-                    initials: 'MV',
                 },
             ]
             resolve(userName[Math.floor(Math.random() * 5)])
